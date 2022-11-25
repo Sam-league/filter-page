@@ -95,15 +95,15 @@ const productSlice = createSlice({
             state.loading=true;
         },
         [fetchProducts.fulfilled]:(state,action)=>{
-            let products = action.payload.map((item)=>{
-                item.price = Math.ceil(item.price/100);
-                return item;
-            });
-            state.loading = false;
-            state.products = products
-            state.filteredProducts = products
-            state.companies =company(state.products);
-            state.categories =category(state.products);
+                let products = action.payload.map((item)=>{
+                    item.price = Math.ceil(item.price/100);
+                    return item;
+                });
+                state.loading = false;
+                state.products = products
+                state.filteredProducts = products
+                state.companies =company(state.products);
+                state.categories =category(state.products);
         },
         [fetchProducts.rejected]:(state,action)=>{
             state.loading= false;
